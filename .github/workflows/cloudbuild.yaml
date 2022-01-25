@@ -1,0 +1,66 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: myportfolio
+  namespace: '861064133291'
+  selfLink: /apis/serving.knative.dev/v1/namespaces/861064133291/services/myportfolio
+  uid: e7564939-ff43-47bd-99cf-c9c28d164d0f
+  resourceVersion: AAXWXo95a3I
+  generation: 3
+  creationTimestamp: '2022-01-25T02:04:47.831388Z'
+  labels:
+    managed-by: gcp-cloud-build-deploy-cloud-run
+    gcb-trigger-id: cca41d3b-fabd-4a4f-a96a-caa42b97e903
+    cloud.googleapis.com/location: us-east1
+  annotations:
+    run.googleapis.com/client-name: cloud-console
+    serving.knative.dev/creator: fjvc65@gmail.com
+    serving.knative.dev/lastModifier: fjvc65@gmail.com
+    client.knative.dev/user-image: gcr.io/cloudrun/placeholder
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+spec:
+  template:
+    metadata:
+      name: myportfolio-00003-huw
+      annotations:
+        run.googleapis.com/client-name: cloud-console
+        autoscaling.knative.dev/minScale: '1'
+        autoscaling.knative.dev/maxScale: '100'
+    spec:
+      containerConcurrency: 80
+      timeoutSeconds: 300
+      serviceAccountName: 861064133291-compute@developer.gserviceaccount.com
+      containers:
+      - image: gcr.io/cloudrun/placeholder
+        ports:
+        - name: http1
+          containerPort: 8080
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 512Mi
+  traffic:
+  - percent: 100
+    latestRevision: true
+status:
+  observedGeneration: 3
+  conditions:
+  - type: Ready
+    status: 'True'
+    lastTransitionTime: '2022-01-25T02:08:25.922418Z'
+  - type: ConfigurationsReady
+    status: 'True'
+    lastTransitionTime: '2022-01-25T02:08:18.001772Z'
+  - type: RoutesReady
+    status: 'True'
+    lastTransitionTime: '2022-01-25T02:08:25.922418Z'
+  latestReadyRevisionName: myportfolio-00003-huw
+  latestCreatedRevisionName: myportfolio-00003-huw
+  traffic:
+  - revisionName: myportfolio-00003-huw
+    percent: 100
+    latestRevision: true
+  url: https://myportfolio-xkkqehtwsa-ue.a.run.app
+  address:
+    url: https://myportfolio-xkkqehtwsa-ue.a.run.app
